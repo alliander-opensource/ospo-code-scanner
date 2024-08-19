@@ -1,0 +1,2006 @@
+# SPDX-FileCopyrightText: 2023 Nico Rikken
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Render from https://gitlab.com/nicorikken/woke-config-builder
+
+ignore_files:
+- LICENSE
+- LICENSES/*
+- .woke.yml
+- .woke.yaml
+- requirements.txt
+- pyproject.yaml
+- poetry.lock
+- go.mod
+- go.sum
+- package.json
+- package-lock.json
+include_note: true
+rules:
+- alternatives:
+  - knowledgeable person
+  - source person
+  - use the person's name
+  - experienced person
+  name: gray beard
+  note: Gendered symptoms of old age to describe a high degree of knowledge or experience.
+  options:
+    categories:
+    - lang:en
+    - type:ageism
+  severity: warning
+  terms:
+  - gray beard
+  - gray-beard
+  - graybeard
+- alternatives:
+  - missed area
+  - imperceptive
+  - ignorant
+  - uneducated
+  - insensitive
+  - dense
+  - unaware
+  - choosing to ignore
+  - biased against
+  name: blindspot
+  note: Implies a similarity between blindness and ignorance.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - blindspot
+  - blind spot
+  - blind to the truth
+  - blind eye to
+- alternatives:
+  - unexpected
+  - complex
+  - baffling
+  - confusing
+  - disoriented
+  - disorienting
+  - amazing
+  - incredibly
+  - super difficult
+  - very complicated
+  - wild
+  - irrational
+  - ridiculous
+  - silly
+  - absurd
+  - strange
+  - unnatural
+  - outrageous
+  - out of this world
+  - exciting
+  - infatuated
+  - passionate
+  - enthusiastic
+  - impractical
+  - senseless
+  name: crazy
+  note: Also used to describe mental illness, therefore it is better avoided.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: error
+  terms:
+  - crazy
+  - insane
+  - retarded
+- alternatives:
+  - impacted
+  - degraded
+  - restricted
+  - immobilize
+  - software with restricted functionality
+  - slow down
+  - hinder
+  - obstruct
+  - attenuating
+  - incapacitating
+  - prevent
+  name: cripple
+  note: Term used to describe people with physical disabilities.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - cripple
+  - crippled
+  - crippleware
+  - cripples
+  - crippling
+- alternatives:
+  - unwilling to hear or listen
+  - ignorant
+  - unwilling to learn/understand
+  - misunderstanding
+  - uneducated
+  - dense
+  - didn’t listen
+  - ignored
+  - disregarded
+  name: deaf
+  note: Is often used to describe unwillingness to listen or lack of interaction.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    word_boundary: true
+  severity: error
+  terms:
+  - deaf
+  - deaf to
+  - fell on deaf ears
+- alternatives:
+  - clueless
+  - uninformed
+  - ignorant
+  - mute
+  - nonvocal
+  - simple
+  name: dumb
+  note: Negative term used to refer to people unable to speak.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    - false-positive:high
+  severity: warning
+  terms:
+  - dumb
+- alternatives:
+  - clueless
+  - simplify
+  name: dumb-down
+  note: Dumb is a negative term used to refer to people unable to speak.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - dumb-down
+  - dumb down
+- alternatives:
+  - terminal
+  - computer terminal
+  - thin client
+  name: dumb terminal
+  note: Dumb is a negative term used to refer to people unable to speak.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - dumb terminal
+- alternatives:
+  - placeholder
+  - fake
+  - stub
+  - sample
+  - test data/value
+  - pseudo
+  name: dummy
+  note: Negative term used to refer to people with hearing disabilities.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - dummy
+- alternatives:
+  - large
+  - oversized
+  - overweight
+  name: fat
+  note: Negative term assocaited with overweight people.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - fat
+- alternatives:
+  - obstacle
+  - impede
+  - restrict
+  - disability
+  name: handicap
+  note: Negative term used to describe disabilities.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - handicap
+  - handicapped
+- alternatives:
+  - check
+  - probe check
+  name: healthcheck
+  note: Implies the concept of absolute health, reflecting negatively on people with
+    health issues.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - healthcheck
+  - health-check
+  - health check
+- alternatives:
+  - in order
+  - fine
+  - correct
+  name: healthy
+  note: Implies the concept of absolute health, reflecting negatively on people with
+    health issues.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+  severity: warning
+  terms:
+  - healthy
+- alternatives:
+  - weak
+  - boring
+  name: lame
+  note: Negative term used to refer to people with a physical disability.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    word_boundary: true
+  severity: warning
+  terms:
+  - lame
+- alternatives:
+  - standard
+  - default
+  - desired state
+  name: normal
+  note: Implies the concept of absolute normality, reflecting negatively on diversity
+    in general.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    - false-positive:high
+  severity: info
+  terms:
+  - normal
+  - normally
+- alternatives:
+  - standaard
+  - gebruikelijk
+  name: normaal
+  note: Implies the concept of absolute normality, reflecting negatively on diversity
+    in general.
+  options:
+    categories:
+    - lang:nl
+    - type:disabilities
+    - false-positive:high
+  severity: info
+  terms:
+  - normaal
+  - normale
+- alternatives:
+  - confidence test/check
+  - coherence test/check
+  - test/check
+  - verification
+  - quick test/check
+  - gut test/check
+  name: sanity check
+  note: Implies insanity, which is a negative term also used to refer to people with
+    a mental disability.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    - inclusive-naming-initiative:strongly-consider-replacing
+  severity: warning
+  terms:
+  - sanity check
+  - sanity test
+  - sanity
+- alternatives:
+  - read
+  - visit
+  - refer to
+  - open
+  name: see
+  note: Unnecessarily associated with vision, reflecting negatively on persons with
+    an impaired vision.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    word_boundary: true
+  severity: info
+  terms:
+  - see
+- alternatives:
+  - read
+  - visit
+  - refer to
+  - open
+  name: view
+  note: Unnecessarily associated with vision, reflecting negatively on persons with
+    an impaired vision.
+  options:
+    categories:
+    - lang:en
+    - type:disabilities
+    - false-positive:high
+    word_boundary: true
+  severity: info
+  terms:
+  - view
+- alternatives:
+  - lees
+  - bezoek
+  - open
+  - refereer naar
+  name: zie / bekijk
+  note: Unnecessarily associated with vision, reflecting negatively on persons with
+    an impaired vision.
+  options:
+    categories:
+    - lang:nl
+    - type:disabilities
+    word_boundary: true
+  severity: info
+  terms:
+  - zie
+  - bekijk
+- alternatives:
+  - ethical wall
+  - barrier
+  - firewall
+  name: chinese wall
+  note: Using this term as a stand-in for a communication barrier is culturally insensitive.
+  options:
+    categories:
+    - lang:en
+    - type:culture
+  severity: error
+  terms:
+  - chinese wall
+- alternatives:
+  - afscheiding
+  - firewall
+  name: chinese muur
+  note: Using this term as a stand-in for a communication barrier is culturally insensitive.
+  options:
+    categories:
+    - lang:nl
+    - type:culture
+  severity: error
+  terms:
+  - chinese muur
+- alternatives:
+  - telephone game
+  - whisper down the lane
+  - broken telephone
+  - operator
+  - grapevine
+  - gossip
+  - secret message
+  - messenger game
+  - pass the message
+  name: chinese whispers
+  note: Terminology rooted in the idea that certain languages were incomprehensible.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    word_boundary: true
+  severity: error
+  terms:
+  - chinese whispers
+  - chinese-whispers
+  - russian scandal
+  - russian gossip
+  - russian telephone
+- alternatives:
+  - téléphone sans fil
+  name: chinese whispers
+  note: Terminology rooted in the idea that certain languages were incomprehensible.
+  options:
+    categories:
+    - lang:fr
+    - type:ethnicity
+    word_boundary: true
+  severity: error
+  terms:
+  - téléphone arabe
+- alternatives:
+  - team
+  - group
+  name: clan
+  note: Distinct term for Highlanders of Schotland. Cultural appropriation.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    word_boundary: true
+  severity: warning
+  terms:
+  - clan
+- alternatives:
+  - rules
+  name: commandments
+  note: Term with signicance in Judaism and Christianity. Used out of context of their
+    cultural meaning.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    word_boundary: true
+  severity: warning
+  terms:
+  - commandments
+  - commandment
+- alternatives:
+  - rules
+  name: geboden
+  note: Term with signicance in Judaism and Christianity. Used out of context of their
+    cultural meaning.
+  options:
+    categories:
+    - lang:nl
+    - type:ethnicity
+    word_boundary: true
+  severity: warning
+  terms:
+  - geboden
+- alternatives:
+  - omniscient
+  - all-knowing
+  - global
+  name: god
+  note: Significant term in religions. Other terms exist to describe far-reaching
+    knowledge or scope.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    - false-positive:high
+  severity: info
+  terms:
+  - god
+- alternatives:
+  - designed
+  - poorly designed
+  - biased
+  - skewed
+  - predisposed
+  name: jerry-rigged
+  note: Derogatory term for Germans in Second World War.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: error
+  terms:
+  - jerry-rigged
+  - jerry rigged
+- alternatives:
+  - north star
+  - elevator pitch
+  - mission statement
+  - motto
+  name: mantra
+  note: Has important value in religions. It shouldn't be used out of context.
+  options:
+    categories:
+    - lang:en
+    - lang:universal
+    - type:ethnicity
+  severity: error
+  terms:
+  - mantra
+- alternatives:
+  - confusing language
+  - meaningless language
+  name: mumbo jumbo
+  note: Originated from the Mandinka word "Maamajomboo". Used out of context of their
+    cultural meaning.
+  options:
+    categories:
+    - lang:en
+    - lang:universal
+    - type:ethnicity
+    word_boundary: true
+  severity: error
+  terms:
+  - mumbo jumbo
+- alternatives:
+  - expert
+  - Agile expert
+  - charismatic person
+  - talented person
+  - specialist
+  name: ninja / guru
+  note: Used out of context of their cultural meaning.
+  options:
+    categories:
+    - lang:en
+    - lang:universal
+    - type:ethnicity
+  severity: error
+  terms:
+  - ninja
+  - guru
+- alternatives:
+  - expert
+  - Agile expert
+  - charismatisch person
+  - getalenteerd person
+  - specialist
+  - wijze
+  name: goeroe
+  note: Used out of context of their cultural meaning.
+  options:
+    categories:
+    - lang:nl
+    - type:ethnicity
+  severity: error
+  terms:
+  - goeroe
+- alternatives:
+  - I can't do it
+  - Not possibile
+  - Not feasible
+  name: no can do
+  note: Phrase originates from "Chinese Pidgin English" at a time of racism against
+    Chinese.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+  severity: error
+  terms:
+  - no can do
+  - no can't do
+  - no cannot do
+- alternatives:
+  - full disclosure
+  - provide insight into
+  name: open the kimono
+  note: Continues a stereotypical view of Japanese culture.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+  severity: error
+  terms:
+  - open the kimono
+- alternatives:
+  - huddle
+  - standup
+  - discussion
+  - meeting
+  - meetup
+  name: pow wow
+  note: Cultural ceremony. Using this term is cultural appropriation.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+  severity: error
+  terms:
+  - pow wow
+- alternatives:
+  - guide
+  - coach
+  - leader
+  - tutor
+  name: sherpa
+  note: Sherpas are an ethnic group, not an occupation. Using this term is cultural
+    appropriation.
+  options:
+    categories:
+    - lang:en
+    - lang:universal
+    - type:ethnicity
+  severity: error
+  terms:
+  - sherpa
+- alternatives:
+  - conjoined
+  - conj
+  - joined
+  - connected
+  name: siamese
+  note: Often used to mean strongly connected, originated from conjoined twins that
+    became famous and were from Siamese origin. Other terms exist that convey the
+    meaning without refering to ethnicity.
+  options:
+    categories:
+    - lang:en
+    - lang:universal
+    - type:ethnicity
+  severity: error
+  terms:
+  - siamese
+- alternatives:
+  - kindred spirit
+  - personal icon
+  - role model
+  name: spirit animal
+  note: Has important value in religions. Using this term is cultural appropriation.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+  severity: error
+  terms:
+  - spirit animal
+  - spirit-animal
+- alternatives:
+  - hierarchy
+  name: totem pole
+  note: Term is culturally significant. Using this term is cultural appropriation.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+  severity: error
+  terms:
+  - totem pole
+  - totem
+- alternatives:
+  - chair
+  - foreperson
+  name: chairman/foreman
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - chairman
+  - foreman
+- alternatives:
+  - socket(n)
+  - receptacle
+  name: female connector / fastener
+  note: Genderist language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    word_boundary: true
+  severity: warning
+  terms:
+  - female connector
+  - female socket
+  - female end
+  - female fastener
+- alternatives:
+  - first-year student
+  name: freshman
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - freshman
+  - freshmen
+- alternatives:
+  - women
+  - folks
+  - people
+  - you all
+  - y'all
+  - yinz
+  - friends
+  name: gals
+  note: Patronizing language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - ladies
+  - gals
+- alternatives:
+  - folks
+  - people
+  - you all
+  - y'all
+  - yinz
+  - friends
+  name: guys
+  note: Patronizing language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - guys
+- alternatives:
+  - they
+  - them
+  - theirs
+  name: he/him/his
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    word_boundary: true
+  severity: info
+  terms:
+  - he
+  - him
+  - his
+- alternatives:
+  - rephrase the sentence
+  - hen
+  - hun
+  - die
+  - diens
+  name: hij/hem
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:nl
+    - type:gender
+    word_boundary: true
+  severity: info
+  terms:
+  - hij
+  - hem
+- alternatives:
+  - maintenance
+  - cleanup
+  - overview
+  name: housekeeping
+  note: Associated with women's domestic role as housekeepers, continuing stereotypes.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - housekeeping
+- alternatives:
+  - plug
+  - jack
+  - connector
+  - pin
+  name: male connector / fastener
+  note: Genderist language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    word_boundary: true
+  severity: warning
+  terms:
+  - male connector
+  - male socket
+  - male end
+  - male fastener
+- alternatives:
+  - hours
+  - work hours
+  - staff hours
+  - person hours
+  - engineer hours
+  - hourse of effort
+  - labor hours
+  name: man-hours
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - man hours
+  - man hour
+  - man-hours
+  - man-hour
+- alternatives:
+  - uren
+  - werkuren
+  - persoonuren
+  name: manuren
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:nl
+    - type:gender
+  severity: warning
+  terms:
+  - manuur
+  - manuren
+  - man-uur
+  - man-uren
+- alternatives:
+  - Adversary-in-the-middle attack
+  - Interceptor attack
+  - Intermediary attack
+  - machine-in-the-middle
+  - person-in-the-middle
+  - system-in-the-middle
+  - monster-in-the-middle
+  name: man-in-the-middle
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    - inclusive-naming-initiative:recommendations-to-replace
+  severity: warning
+  terms:
+  - man-in-the-middle
+  - man in the middle
+- alternatives:
+  - months
+  - work months
+  - staff months
+  - person months
+  - engineer months
+  name: man-months
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - man month
+  - man months
+  - man-month
+  - man-months
+- alternatives:
+  - humankind
+  name: mankind
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - mankind
+- alternatives:
+  - crewed
+  - staffed
+  - monitored
+  - human operated
+  name: manned
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    word_boundary: true
+  severity: error
+  terms:
+  - manned
+- alternatives:
+  - bemenst
+  - bemensen
+  name: bemand
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:nl
+    - type:gender
+    word_boundary: true
+  severity: error
+  terms:
+  - bemand
+  - bemannen
+- alternatives:
+  - effort
+  - workforce equivalent (WFE)
+  - effective labor output (ELO)
+  - equivalent labor (EQL)
+  - human effort
+  name: manpower
+  note: Gender-specific language, even if man refers to mankind.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - manpower
+- alternatives:
+  - kracht
+  - menskracht
+  name: mankracht
+  note: Gender-specific language, even if man refers to mankind.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - mankracht
+- alternatives:
+  - middleperson
+  - intermediary
+  name: middleman
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - middleman
+- alternatives:
+  - user test
+  - user friendly
+  name: mom test / girlfriend test
+  note: Implies that females or elderly are less knowledgeable, continuing stereotypes.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - mom test
+  - girlfriend test
+- alternatives:
+  - pronouns
+  - personal pronouns
+  name: preferred pronouns
+  note: Implies that chosen pronouns are optional and therefore less important.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: warning
+  terms:
+  - preferred pronouns
+- alternatives:
+  - rephrase the sentence
+  - they
+  - them
+  - theirs
+  name: she/her/hers
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+    word_boundary: true
+  severity: info
+  terms:
+  - she
+  - her
+  - hers
+- alternatives:
+  - rephrase the sentence
+  - hen
+  - hun
+  - die
+  - diens
+  name: hij/hem/zijn
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:nl
+    - type:gender
+    word_boundary: true
+  severity: info
+  terms:
+  - zij
+  - haar
+- alternatives:
+  - junior or senior student
+  - returning student
+  name: upperclassman
+  note: Gender-specific language.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - upperclassman
+  - upperclassmen
+- alternatives:
+  - first
+  - first run
+  - first launch
+  name: virgin
+  note: Associated mostly with women, genderist and continues stereotypes.
+  options:
+    categories:
+    - lang:en
+    - type:gender
+  severity: error
+  terms:
+  - virgin
+- alternatives:
+  - termination
+  - quit
+  - cancel
+  - close
+  - end
+  - halt
+  - stop
+  name: abort
+  note: Associated with early termination of pregnancy, subject of a current cultural
+    and political conflict.
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+    - inclusive-naming-initiative:replace-immediately
+  severity: warning
+  terms:
+  - abort
+- alternatives:
+  - ambassador
+  - promotion
+  - advocating
+  name: evangalism
+  note: Refers to Christian practice of spreading religion. Considered to be intolerant
+    as this was also coerced (proselytism).
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+  severity: error
+  terms:
+  - envangalism
+  - envangalist
+  - envangalising
+  - envangalizing
+- alternatives:
+  - type
+  - object
+  - entity
+  - value
+  name: first-class citizen
+  note: Implies others are of lower class.
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+  severity: warning
+  terms:
+  - first-class citizen
+  - first-class function
+  - first-class control
+  - first-class data type
+- alternatives:
+  - invalid characters
+  - unsupported characters
+  - special characters
+  name: illegal characters
+  note: Implies a legal violation whereas it is a technical policy to not allow certain
+    characters. Term illegal has a more significant meaning in other contexts, like
+    illegal immigrants.
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+  severity: warning
+  terms:
+  - illegal characters
+- alternatives:
+  - English as first language
+  name: native speaker
+  note: Implies that English is the original language in the country of context. For
+    colonized countries this is not the case.
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+  severity: warning
+  terms:
+  - native speaker
+- alternatives: []
+  name: nazi
+  note: An intolerant ideology with historical significance to many cultures. Should
+    not be used as a stand-in to imply certain traits of a person.
+  options:
+    categories:
+    - lang:en
+    - lang:nl
+    - type:intolerance
+    word_boundary_end: true
+  severity: error
+  terms:
+  - nazi
+- alternatives:
+  - out of bounds
+  - out of the norm
+  name: off the reservation
+  note: Phrase originates from Native Americans restricted to reservations created
+    by the US government.
+  options:
+    categories:
+    - lang:en
+    - type:intolerance
+  severity: warning
+  terms:
+  - off the reservation
+- alternatives:
+  - annotate
+  - priority line
+  - scrap
+  - shelve
+  - cancel
+  - drop
+  - edit
+  - marked up
+  name: redlining
+  note: Term describing the practice in the 1960s in the U.S. to deny services to
+    residents of specific neighbourhoods, based on racial treats.
+  options:
+    categories:
+    - lang:en
+    - type:discriminatory
+    - type:intolerance
+  severity: warning
+  terms:
+  - redline
+  - red-line
+  - redlining
+- alternatives:
+  - read the manual
+  name: rtfm
+  note: Profane language and an abbreviation not all might know.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+    word_boundary: true
+  severity: warning
+  terms:
+  - rtfm
+- alternatives:
+  - summary
+  name: tldr
+  note: Abbreviation might not be known by all.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+    word_boundary: true
+  severity: warning
+  terms:
+  - tldr
+  - tl;dr
+- alternatives:
+  - user problem
+  name: problem in chair
+  note: Shifting blame and an abbreviation might not be known by all.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+    word_boundary: true
+  severity: warning
+  terms:
+  - pebkac
+  - picnic
+- alternatives:
+  - oh dear
+  name: oh my god
+  note: Abbreviation might not be known by all.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+    word_boundary: true
+  severity: warning
+  terms:
+  - omg
+  - omgs
+  - omfg
+- alternatives:
+  - write it out in full or use a different term
+  name: various abbreviations
+  note: Abbreviation might not be known by all.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+    word_boundary: true
+  severity: warning
+  terms:
+  - afaic
+  - afaik
+  - afaiac
+  - afaict
+  - afair
+  - aka
+  - atm
+  - btw
+  - faq
+  - ftfy
+  - fyi
+  - ianal
+  - iirc
+  - imao
+  - imho
+  - imso
+  - ymmv
+- alternatives:
+  - newcomer
+  name: noob
+  note: Slang might not be known by all.
+  options:
+    categories:
+    - lang:en
+    - type:jargon
+  severity: error
+  terms:
+  - noob
+  - n00b
+  - noowb
+  - newbie
+- name: bloody
+  note: Often profane language.
+  options:
+    categories:
+    - lang:en
+    - type:profanity
+    word_boundary: true
+  severity: warning
+  terms:
+  - bloody
+- name: damn
+  note: Profane language.
+  options:
+    categories:
+    - lang:en
+    - type:profanity
+    word_boundary: true
+  severity: error
+  terms:
+  - damn
+  - darn
+  - dang
+- name: fuck
+  note: Profane language.
+  options:
+    categories:
+    - lang:en
+    - type:profanity
+    word_boundary_start: true
+  severity: error
+  terms:
+  - fuck
+  - f*ck
+- name: shit
+  note: Profane language.
+  options:
+    categories:
+    - lang:en
+    - type:profanity
+    word_boundary: true
+  severity: error
+  terms:
+  - shit
+  - sh*t
+- alternatives:
+  - blocked days
+  - restricted days
+  - make no changes period
+  name: blackout days
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - blackout day
+  - blackout date
+  - black day
+  - black date
+  - gray days
+  - gray date
+- alternatives:
+  - restriction
+  - outage
+  - restrict
+  - failed
+  - network degradation
+  name: blackout
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: error
+  terms:
+  - blackout
+- alternatives:
+  - lunch and learn
+  - tech talks
+  - lunch meeting
+  name: brown bags
+  note: Brown bags can be associated with the "Brown paper bag test" that discriminated
+    by skin color. Other terms exist.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - brown bag
+  - brown bags
+- alternatives:
+  - exempted
+  - legacy status
+  - legacy
+  - legacied
+  - carried
+  - brought forward
+  - rolled over
+  name: grandfathered
+  note: Grandfather clauses were put in discriminatory laws in the U.S., preventing
+    voting registration of African Americans. Use a different term not recalling this
+    history.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - grandfather
+  - grandfathered
+- alternatives:
+  - steal
+  - scam
+  - defraud
+  - cheat
+  name: gyp
+  note: Term meaning to steal, related to the term "gypsy", a pejorative term for
+    Romani. Continues ethnic stereotypes.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: error
+  terms:
+  - gyp
+  - gip
+- alternatives:
+  - simplify
+  - inclusive
+  - make more accessible
+  name: lower the bar
+  note: Associated with the practice of lowering standards to add people from different
+    racial, ethnic, gender backgrounds.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - lower the bar
+- alternatives:
+  - native american
+  - african american
+  - people of color
+  - traditionally underserved community
+  - historically excluded
+  name: minority
+  note: When used to describe groups of people it often implies ethnic outliers and
+    in doing so continues discriminiation.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    word_boundary: true
+  severity: info
+  terms:
+  - minority
+- alternatives:
+  - whole team swarming
+  - herd programming
+  - collaborative programming
+  name: mob programming
+  note: Associated with criminal activities by certain ethnicities.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    word_boundary: true
+  severity: warning
+  terms:
+  - mob programming
+- alternatives:
+  - built-in
+  - platform-specific
+  - core
+  name: native
+  note: Term used to distinguishes people on their ethnicity, better avoided.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    word_boundary: true
+  severity: error
+  terms:
+  - native
+- alternatives:
+  - upper balcony/gallery
+  - other tier
+  - cheap seats
+  - observers
+  name: peanut gallery
+  note: Describes balconies of segregated theaters, associated with racism.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: error
+  terms:
+  - peanut gallery
+- alternatives:
+  - basic
+  name: primitive
+  note: Associated with cultures with lower adoption of technology when used to describe
+    something basic.
+  options:
+    categories:
+    - lang:en
+    - type:ethnicity
+    - false-positive:high
+    word_boundary: true
+  severity: warning
+  terms:
+  - primitive
+- alternatives:
+  - cyber offensive
+  - cyber exercise cell
+  - devsecops team
+  name: red team
+  note: Equating red as attacker and yellow as bystanders continues racial (skin color)
+    and political (communism) bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - red team
+  - white team
+  - yellow team
+  - red atomic team
+- alternatives:
+  - Segment/segmentation
+  - Separate/separation
+  name: segregate
+  note: This term is racially insensitive
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - inclusive-naming-initiative:recommendations-to-replace
+  severity: warning
+  terms:
+  - segregate
+  - segregating
+  - segregation
+- alternatives:
+  - team
+  - group
+  name: tribe
+  note: Associated with colonialism.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - inclusive-naming-initiative:recommendations-to-replace
+    word_boundary: true
+  severity: warning
+  terms:
+  - tribe
+  - tribal
+- alternatives:
+  - institutional knowledge
+  - organizational knowledge
+  name: tribal knowledge
+  note: Associated with colonialism.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    word_boundary: true
+  severity: warning
+  terms:
+  - tribal knowledge
+- alternatives:
+  - closed-box
+  - closed system
+  - opaque glassbox
+  - frosted glass box
+  - mystery box
+  - unknown origin
+  - obfuscated
+  name: blackbox
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - inclusive-naming-initiative:no-change-recommended
+  severity: warning
+  terms:
+  - black-box
+  - blackbox
+  - black box
+- alternatives:
+  - unethical hacker
+  - attacker
+  - unethical
+  - malicious actor
+  - malevolent
+  - malignant
+  - bad
+  - criminal
+  name: blackhat
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - blackhat
+  - black-hat
+  - black hat
+- alternatives:
+  - denylist
+  - banned list
+  - blocklist
+  - block
+  - ban
+  - exclusion list
+  name: blacklist
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - blacklist
+  - black-list
+  - blacklisted
+  - black-listed
+- alternatives:
+  - lijst ongewenste zaken
+  - afwijslijst
+  - blokkeerlijst
+  name: zwarte lijst
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:nl
+    - type:racist
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - zwartelijst
+  - zwarte lijst
+- alternatives:
+  - easy
+  name: cakewalk
+  note: Cakewalk was known as "prize walks" by enslaved people, linking this term
+    to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+  severity: error
+  terms:
+  - cakewalk
+  - takes the cake
+  - take the cake
+- alternatives:
+  - partially known
+  - partially open box
+  - partially open system
+  name: greybox
+  note: The symmetry between white/black and good/bad continues racial bias. Grey
+    continues this color distinction.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - grey-box
+  - gray-box
+  - greybox
+  - graybox
+  - grey box
+  - gray box
+- alternatives:
+  - hacktivist
+  name: greyhat
+  note: The symmetry between white/black and good/bad continues racial bias. Grey
+    continues this color distinction.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: error
+  terms:
+  - greyhat
+  - grey-hat
+  - grey hat
+- alternatives:
+  - temporarily reject/block
+  - temporarary reject/blocklist
+  - conditionally reject/block
+  - quarantine
+  name: greylist
+  note: The symmetry between white/black and good/bad continues racial bias. Grey
+    continues this color distinction.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - greylist
+  - grey-list
+  - grey list
+- alternatives:
+  - leader/follower
+  - main/replica
+  - primary/replica
+  - primary/standby
+  - primary/secondary
+  - parent/child
+  - active/passive
+  - active/standby
+  - conductor/musician
+  - origin/clone
+  - lead/support
+  - local/remote
+  name: master-slave
+  note: Master/slave as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - master-slave
+  - master/slave
+- alternatives:
+  - main
+  - controller
+  - original
+  - source
+  - control pane
+  - primary
+  - leader
+  - parent
+  - reference
+  - active
+  - head
+  - local
+  - principal
+  - manager
+  name: master
+  note: Master as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - master
+- alternatives:
+  - flow manager
+  name: Kanban flow master
+  note: Master as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+  severity: error
+  terms:
+  - flow master
+- alternatives:
+  - agile lead
+  - agile program manager
+  - agile coach
+  - agile team facilitator
+  - scrum coach
+  - scrum teacher
+  - scrum leader
+  - scrum facilitator
+  - servant leader
+  - scrum custodian
+  - scrum guardian
+  - scrum guide
+  - process expert
+  - process lead
+  name: Scrum master
+  note: Master as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+  severity: error
+  terms:
+  - scrum master
+  - scrummaster
+- alternatives:
+  - main branch
+  - trunk
+  name: Master branch
+  note: Master as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+  severity: error
+  terms:
+  - master branch
+- alternatives:
+  - leadership
+  name: mastership
+  note: Master as hierarchical metaphor is tied to slavery.
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+  severity: warning
+  terms:
+  - mastership
+- alternatives:
+  - controle pane node
+  - doer
+  - replica
+  - secondary
+  - follower
+  - child
+  - standby
+  - worker
+  - passive
+  - branch
+  - remote
+  - follower
+  name: slave
+  note: This term is racially insensitive
+  options:
+    categories:
+    - lang:en
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - slave
+- alternatives:
+  - replica
+  - secundaire
+  - volger
+  - kind
+  - werker
+  - passief
+  - volger
+  name: slaaf
+  note: This term is racially insensitive
+  options:
+    categories:
+    - lang:nl
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - slaaf
+  - slaven
+- alternatives:
+  - known
+  - open box
+  - open system
+  - glass box
+  - clear box
+  name: whitebox
+  note: Equating white/black with good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+  severity: warning
+  terms:
+  - white-box
+  - whitebox
+  - white box
+- alternatives:
+  - ethical hacker
+  - ethical
+  - researcher
+  - security specialist
+  - security researcher
+  - benevolent
+  - benign
+  - good
+  name: whitehat
+  note: Equating white/black with good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - whitehat
+  - white-hat
+  - white hat
+- alternatives:
+  - allowlist
+  - inclusion list
+  - safelist
+  - acceptlist
+  - aproved list
+  - allow
+  - approve
+  name: whitelist
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:en
+    - type:racist
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - whitelist
+  - white-list
+  - whitelisted
+  - white-listed
+- alternatives:
+  - lijst acceptabele zaken
+  - voorkeurslijst
+  name: witte lijst
+  note: The symmetry between white/black and good/bad continues racial bias.
+  options:
+    categories:
+    - lang:nl
+    - type:racist
+    - type:slavery
+    - inclusive-naming-initiative:replace-immediately
+  severity: error
+  terms:
+  - wittelijst
+  - witte lijst
+- alternatives:
+  - perimeter network
+  - passthrough network
+  name: demilitarized zone
+  note: Militarized language, associated with violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+    - type:military
+  severity: error
+  terms:
+  - demilitarized zone
+  - dmz
+- alternatives:
+  - reach
+  - press
+  name: hit
+  note: Carries implications of violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+    word_boundary: true
+  severity: warning
+  terms:
+  - hit
+- alternatives:
+  - stop
+  - halt
+  name: kill
+  note: Carries implications of violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+    word_boundary_start: true
+  severity: warning
+  terms:
+  - kill
+- alternatives:
+  - rule
+  - guideline
+  name: rule of thumb
+  note: Carries implications of domestic violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+  severity: warning
+  terms:
+  - rule of thumb
+  - rules of thumb
+- alternatives:
+  - fence failed nodes
+  - machines
+  name: stonith/stomith
+  note: Abbreviation of "Shoot The Offending Node/Member/Machine In The Head", so
+    violent.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+  severity: error
+  terms:
+  - stonith
+  - stomith
+- alternatives:
+  - decrease
+  - lessen
+  - shrink
+  - increase
+  - grow
+  - experience
+  name: suffer
+  note: Carries implications of violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+  severity: warning
+  terms:
+  - suffer
+- alternatives:
+  - operations room
+  - ops room
+  name: war room
+  note: Carries implications of violence.
+  options:
+    categories:
+    - lang:en
+    - type:violence
+    - type:military
+  severity: error
+  terms:
+  - war room
