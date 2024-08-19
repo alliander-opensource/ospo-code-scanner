@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Pull-request review
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  review:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+      - name: Pre-commit checks
+        run: |
+          pip install pre-commit
+          pre-commit install
+          pre-commit run --all-files

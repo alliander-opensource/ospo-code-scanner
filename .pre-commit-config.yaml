@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.29.1
+    hooks:
+      - id: check-github-workflows
+      - id: check-dependabot
+      - id: check-jsonschema
+        name: "Check repolinter yaml"
+        files: config/repolinter-rules.yaml
+        types: [yaml]
+        args: ["--schemafile", "https://raw.githubusercontent.com/todogroup/repolinter/main/rulesets/schema.json"]
