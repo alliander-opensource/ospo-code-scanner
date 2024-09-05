@@ -6,24 +6,24 @@ SPDX-License-Identifier: Apache-2.0
 
 # Getting help
 
-There are a few ways to connect with the ospo-code-scanner project:
+There are a few ways to connect with the OSPO Code Scanner project:
 
 * Submit an issue
 * Send an email to the Technical Steering Committee: ospo@alliander.com.
 
 ## How to ask for help, suggest a feature, or give recommendations.
 
-If you have trouble installing, building, or using the ospo-code-scanner project,
-but there's not yet reason to suspect you've encountered a genuine bug,
+If you have trouble installing, building, or using the OSPO Code Scanner project,
+but there's not yet a reason to suspect you've encountered a genuine bug,
 you can ask a question in the issues tab of the repository.
 
-If you have an idea for a new feature or some recommendations for existing features or documentations,
+If you have an idea for a new feature or recommendations for existing features or documentation,
 you can also propose it in the issues tab.
 
 ## How to report a bug
 
-This project manages bug and enhancement using the GitHub issue tracker.
-The various issue templates will guide you on making an effective report.
+This project manages bugs and enhancements using the GitHub issue tracker.
+The various issue templates will guide you in making an effective report.
 
 ## How to report a security vulnerability
 
