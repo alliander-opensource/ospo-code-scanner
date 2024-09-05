@@ -19,8 +19,8 @@ The Technical Steering Committee (TSC) is responsible for:
 1. Raising subjects/issues that are important for the direction/development of this project
 
 The Technical Steering Committee consists of the following members:
-1. Nico Rikken, Open Source Ambassador, Alliander
-1. Jonas van den Bogaard, Open Source Program Office Lead, Alliander
+1. [Nico Rikken](https://github.com/nicorikken), Open Source Ambassador, Alliander
+1. [Jonas van den Bogaard](https://github.com/Jonasvdbo), Open Source Program Office Lead, Alliander
 
 The Open Source Ambassador will chair the TSC.
 
