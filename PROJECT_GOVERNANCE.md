@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 # Project Governance
 
 The basic principle is that decisions are based on consensus.
-If this decision making process takes too long or a decision is required, the technical steering committee committee has the authority to make a decision.
+If this decision making process takes too long or a decision is required, the Technical Steering Committee has the authority to make a decision.
 
 ## Technical Steering Committee
 
@@ -19,8 +19,8 @@ The Technical Steering Committee (TSC) is responsible for:
 1. Raising subjects/issues that are important for the direction/development of this project
 
 The Technical Steering Committee consists of the following members:
-1. Open Source Ambassador, Alliander
-1. Open Source Program Office Lead, Alliander
+1. Nico Rikken, Open Source Ambassador, Alliander
+1. Jonas van den Bogaard, Open Source Program Office Lead, Alliander
 
 The Open Source Ambassador will chair the TSC.
 
@@ -36,7 +36,7 @@ Maintainers are responsible for maintaining parts of the codebase. Maintainers h
 1. Coordinate bug follow-ups
 1. Coordinate questions
 
-In case of long discussions or arguments, maintainers or others can request a community council decision.
+In case of long discussions or arguments, maintainers or others can request a Technical Steering Committee decision.
 
 The current maintainers of this project are:
  1. Nico Rikken - Open Source Ambassador, Alliander
