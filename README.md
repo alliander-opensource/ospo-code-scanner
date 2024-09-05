@@ -6,24 +6,24 @@ SPDX-License-Identifier: Apache-2.0
 
 # OSPO Code Scanner
 
-This repository contains a GitHub Actions workflow and related configuration files to analyze code repositories for adhering to typical open source practices.
-It assists the analysis of a project before making it open source.
-Something that is a typical responsibility of Open Source Program Offices (OSPOs).
-It runs various checks and aims to find as many of the possible issues that might be worth addressing before open sourcing the code.
+This repository contains a GitHub Actions workflow and related configuration files to check if code repositories follow typical open source practices.
+The OSPO Code Scanner helps analyze a project before it's made open source.
+This is a typical responsibility of Open Source Program Offices (OSPOs).
+By running various checks, the OSPO Code Scanner aims to find issues that might be important to address before the code is open sourced.
 
 The workflow has separate steps for the different checks.
-All checks are preceded by a magnifying glass symbol (🔍) to help distinguish them from steps executing some technical necessities.
-If issues have been found, the step is marked as failed but the workflow continues running the other checks.
+All checks are preceded by a magnifying glass symbol (🔍) to distinguish them from steps executing  technical requirements.
+When issues are found, the step is marked as failed but the workflow continues running the other checks.
 
-It currently assumes the repository to scan is a GitHub repository, so that the OSSF Scorecard check can use GitHub features to provide more meaningful output.
+The OSPO Code Scanner currently assumes the repository to scan is a GitHub repository, so that the OSSF Scorecard check can use GitHub features to provide more meaningful output.
 
-You are welcome to use it, adopt it to your needs and suggest improvements through pull-requests.
+You are welcome to use the OSPO Code Scanner, adapt it to your needs, and suggest improvements through pull requests.
 The configurations can and should be changed to fit your internal processes.
 
 Despite being a GitHub Actions workflow, it is not designed to be included in a repository to check changes like pull requests.
 It is designed to check an external repository.
-The same tools and configurations can be used inside a repository, but then the workflow can and should be optimized for that use-case.
-This ospo-code-scanner purposely runs certain tools using custom commands, whereas pull request checks can used readily available GitHub actions for these tools.
+The same tools and configurations can be used inside a repository, but then the workflow can and should be optimized for that use case.
+The OSPO Code Scanner purposely runs certain tools using custom commands, whereas pull request checks can use readily available GitHub Actions for these tools.
 
 ## Checks
 
@@ -35,21 +35,21 @@ Checks the repository with the [reuse-tool](https://github.com/fsfe/reuse-tool).
 Check if the repository contains per-file annotations of copyright and license, according to the REUSE best-practices.
 It also checks if the repository contains the license texts of the licenses used in the project.
 
-The check fails if some irregularities have been found.
+The check fails if irregularities are found.
 
 The output shows the issues and can suggest ways to improve it.
 
 ### Secrets ([TruffleHog OSS](https://github.com/trufflesecurity/trufflehog))
 
-Look for secrets like passwords and API-keys in the current code, including git history and commit messages.
+Looks for secrets like passwords and API-keys in the current code, including git history and commit messages.
 
-The check fails if secrets have been found.
+The check fails if secrets are found.
 
 The output shows the locations of the secrets.
 
 ### Security practices ([OSSF Scorecard](https://securityscorecards.dev/))
 
-Runs a multitude of [security related checks](https://github.com/ossf/scorecard/blob/main/docs/checks.md) in multiple categories and score the results.
+Runs a multitude of [security related checks](https://github.com/ossf/scorecard/blob/main/docs/checks.md) in multiple categories and scores the results.
 The scorecard initiative is a mature initiative governed by the [OpenSSF](https://openssf.org/).
 
 The check fails if there are some improvements left and the score is not a 10 out of 10.
@@ -59,7 +59,7 @@ The output shows the checks per categories and states the issues that should be 
 ### Repository structure ([Repolinter](https://github.com/todogroup/repolinter))
 
 Checks contents of the repository according to a set of rules.
-It mainly checks open source project best-practices.
+It mainly checks open source project best practices.
 The rules are defined in [config/repolinter-rules.yaml](config/repolinter-rules.yaml).
 This ruleset is inspired by [rulesets included in the Repolinter repository](https://github.com/todogroup/repolinter/tree/main/rulesets).
 
@@ -81,7 +81,7 @@ This setup was presented in a lighting talk at the Open Source Summit 2023.
 
 [![Watch the video](https://img.youtube.com/vi/ce66oDyXQ2g/hqdefault.jpg)](https://www.youtube.com/watch?v=ce66oDyXQ2g)
 
-Note that the writing style check using Vale has some overlap with the Woke configuration this repository.
+Note that the writing style check using Vale has some overlap with the Woke configuration in this repository.
 The Woke configuration covers more cases, which is why it still remains as a check.
 
 The check fails if there are errors or warnings.
@@ -93,38 +93,38 @@ The output shows where the words were detected, explains why it is an issue, and
 Vale is a more comprehensive suite compared to Woke as it can check for spelling, grammar and writing style.
 The configuration is located in [config/vale.ini](config/vale.ini).
 
-It is configured to only check text-heavy files like Markdown but also Jupyter Notebooks, and to ignore license text and the checkout configuration files.
+It is configured to only check text-heavy files like Markdown but also Jupyter notebooks, and to ignore license text and the checkout configuration files.
 
-It uses two packages that implemented the rules
+It uses two packages to implement the rules:
 
 - [RedHat package](https://vale.sh/hub/redhat/) that implements the Red Hat style guide
-- [alex](https://vale.sh/hub/alex) that checks for insensitive and inconsiderate writing.
+- [alex](https://vale.sh/hub/alex) that checks for insensitive and inconsiderate writing
 
-Note that alex has some overlap with the Woke configuration this repository.
+Note that alex has some overlap with the Woke configuration in this repository.
 The Woke configuration covers more cases, which is why it still remains as a check.
 
 The check fails if there are warnings or errors.
 
 The output shows all suggestions, warnings and errors.
-It highlights where the issues was detected, why it is an issue and it might suggest improvements.
+It highlights where the issue was detected, why it is an issue and it might suggest improvements.
 
 ### Open source license policy ([OSS Review Toolkit](https://oss-review-toolkit.org/ort/))
 
 OSS Review Toolkit (or 'ORT') is capable of analyzing dependencies of most package managers.
 It can do multiple analysis, like checking against a license policy or checking for security issues.
-In this setup it analyses the dependencies and evaluates it against an ORT configuration repository.
+In this setup it analyses the dependencies and evaluates them against an ORT configuration repository.
 It uses the default [ort-config](https://github.com/oss-review-toolkit/ort-config) configuration by default but can be changed to use a custom ORT configuration.
 
 The ORT check step always succeeds, regardless of the results.
 
-As output it generates multiple reports, including a webreport.
+As output it generates multiple reports, including a web report.
 The reports can be downloaded as a .zip file on the main page of the GitHub Actions workflow run.
-The webreport is a single HTML file containing all necessary browser-code and should be opened with a webbrowser.
+The web report is a single HTML file containing all necessary browser code and should be opened with a web browser.
 
 ## Setup
 
-1. Clone this repository to your own GitHub organization
-2. Enable GitHub Actions
+1. Clone this repository to your own GitHub organization.
+2. Enable GitHub Actions.
 3. Create a developer token with `repo:read` permissions and set it as an [Actions Repository secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) `GH_REPOSITORY_READ_PERMISSIONS`. This token is used to checkout the repository to be analyzed and the ORT config repository.
 
 ## Use
@@ -152,17 +152,17 @@ Ideally it would be able to deal with other repository locations too.
 ### Complicated result output
 
 All output is printed in the console, which is not user-friendly.
-It would be better if the output is summarized on the Actions workflow run page as well.
-Also the output of OSS Review Toolkit is not available in the same way as the other output is, as it is only available as a .zip download.
+It would be better if the output were summarized on the Actions workflow run page as well.
+Also the output of OSS Review Toolkit is not available in the same way as the other output, as it is only available as a .zip download.
 
 ### Missing organization-level configuration
 
 The Repolinter only checks files in the repository.
 Policy documents can also be placed in the `.github` repository of an organization and the repository will then inherit these policies.
-This inheritance is not supported by Repolinter and would be nice if it could deal with this.
+This inheritance is not supported by Repolinter and it would be nice if it could deal with this.
 
 At the same time, it is considered a best practice to have such files in each repository, even if they only contain a link to the organization-level policy document.
-In that way the policy information is also available for people not viewing the code through the GitHub webinterface, like a local checkout on their own computer.
+In that way the policy information is also available for people not viewing the code through the GitHub web interface, like a local checkout on their own computer.
 
 ### Vale makes Woke less relevant
 
@@ -175,7 +175,7 @@ This project started as a GitHub Actions workflow that also used some readily av
 Over time it started using less of the readily available GitHub Actions as most of them aren't a great fit for this setup where an external repository is checked.
 As such this whole scanning workflow could be automated in a more generic way, independent of GitHub Actions.
 For example by having a script in a container.
-That would also enable people to run it on their laptop or using some other automation tool
+That would also enable people to run it on their laptop or using some other automation tool.
 
 # License
 
@@ -183,8 +183,7 @@ This project is licensed under the Apache License Version 2.0 - see [LICENSE](LI
 
 ## Licenses third-party libraries
 
-This project includes third-party libraries,
-which are licensed under their own respective Open-Source licenses.
+This project includes third-party libraries, which are licensed under their own respective Open Source licenses.
 SPDX-License-Identifier headers are used to show which license is applicable.
 The concerning license files can be found in the LICENSES directory.
 
@@ -194,4 +193,4 @@ Please read [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) and [CONTRIBUTING](CONTRIBUTIN
 
 # Contact
 
-Please read [SUPPORT](SUPPORT.md) for how to connect and get into contact with the ospo-code-scanner project.
+Please read [SUPPORT](SUPPORT.md) for how to connect and get into contact with the OSPO Code Scanner project.
