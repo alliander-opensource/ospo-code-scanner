@@ -50,7 +50,7 @@ jobs:
     # Run steps in an untainted repository
     - name: 🔍 Copyright and license annotations (REUSE)
       if: ${{ !cancelled() }}
-      uses: fsfe/reuse-action@v4
+      uses: fsfe/reuse-action@v5
 
     - name: 🔍 Scan secrets (TruffleHog OSS)
       if: ${{ !cancelled() }}
